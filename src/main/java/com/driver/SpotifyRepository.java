@@ -48,6 +48,7 @@ public class SpotifyRepository {
     public Artist createArtist(String name) {
         Artist artist = new Artist(name);
         artists.add(artist);
+        artistLikeMap.put(artist,0);
         return artist;
     }
 
@@ -274,7 +275,7 @@ public class SpotifyRepository {
         return null;
     }
     public String mostPopularArtist() {
-        int max=0;
+        int max=-1;
         Artist mostFamous = null;
         for(Artist artist:artistLikeMap.keySet()){
             if(artistLikeMap.get(artist)>max){

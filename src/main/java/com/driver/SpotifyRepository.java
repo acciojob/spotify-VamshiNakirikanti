@@ -80,6 +80,7 @@ public class SpotifyRepository {
     public Song createSong(String title, String albumName, int length) throws Exception{
         Song song = new Song(title,length);
         songs.add(song);
+        songLikeMap.put(song,new ArrayList<>());
         Album album = getAlbum(albumName);
         if(albumSongMap.containsKey(album)){
             albumSongMap.get(album).add(song);
@@ -293,7 +294,7 @@ public class SpotifyRepository {
         int max=-1;
         Song mostFamous = null;
         for(Song song:songLikeMap.keySet()){
-            if(songLikeMap.get(song).size()>=max){
+            if(songLikeMap.get(song).size()>max){
                 max=songLikeMap.get(song).size();
                 mostFamous = song;
             }

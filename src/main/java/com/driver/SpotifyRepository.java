@@ -282,6 +282,9 @@ public class SpotifyRepository {
                 mostFamous=artist;
             }
         }
+        if(mostFamous==null){
+            return "";
+        }
         return mostFamous.getName();
     }
 
@@ -293,6 +296,9 @@ public class SpotifyRepository {
                 max=songLikeMap.get(song).size();
                 mostFamous = song;
             }
+        }
+        if(mostFamous==null){
+            return "";
         }
         return mostFamous.getTitle();
     }

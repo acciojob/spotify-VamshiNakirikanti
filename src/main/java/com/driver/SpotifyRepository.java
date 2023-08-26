@@ -278,7 +278,7 @@ public class SpotifyRepository {
         int max=-1;
         Artist mostFamous = null;
         for(Artist artist:artistLikeMap.keySet()){
-            if(artistLikeMap.get(artist)>max){
+            if(artistLikeMap.get(artist)>=max){
                 max=artistLikeMap.get(artist);
                 mostFamous=artist;
             }
@@ -290,10 +290,10 @@ public class SpotifyRepository {
     }
 
     public String mostPopularSong() {
-        int max=0;
+        int max=-1;
         Song mostFamous = null;
         for(Song song:songLikeMap.keySet()){
-            if(songLikeMap.get(song).size()>max){
+            if(songLikeMap.get(song).size()>=max){
                 max=songLikeMap.get(song).size();
                 mostFamous = song;
             }
